@@ -1,0 +1,39 @@
+{
+  "name": "shruggie-wtf",
+  "main": "src/worker.js",
+  "compatibility_date": "2026-05-15",
+
+  "observability": {
+    "enabled": false,
+    "head_sampling_rate": 1,
+    "logs": {
+      "enabled": true,
+      "head_sampling_rate": 1,
+      "persist": true,
+      "invocation_logs": true
+    },
+    "traces": {
+      "enabled": false,
+      "persist": true,
+      "head_sampling_rate": 1
+    }
+  },
+
+  // Rate limiting: 60 requests per minute per IP.
+  // namespace_id is a local identifier; Cloudflare provisions it on first deploy.
+  "unsafe": {
+    "bindings": [
+      {
+        "name": "RATE_LIMITER",
+        "type": "ratelimit",
+        "namespace_id": "1001",
+        "simple": {
+          "limit": 60,
+          "period": 60
+        }
+      }
+    ]
+  },
+
+  "routes": [{ "pattern": "shruggie.wtf", "custom_domain": true }]
+}
