@@ -1,5 +1,8 @@
 # shruggie.wtf
 
+![Shruggie](assets/shruggie-wtf.png)
+
+
 A gimmick API that returns shruggies. Deployed on Cloudflare Workers.
 
 ## Dev
@@ -41,3 +44,10 @@ returns `429 Too Many Requests` with `Retry-After: 60`.
 | `GET /random` | `{"shruggie":"..."}` |
 | `GET /health` | `{"ok":true}` |
 | `GET /docs` | API documentation page |
+
+## Example
+
+```bash
+curl -L shruggie.wtf
+¯\_(ツ)_/¯
+```
