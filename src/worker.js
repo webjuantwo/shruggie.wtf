@@ -34,6 +34,16 @@ const CACHE_5M = { 'Cache-Control': 'public, max-age=300' };
 const CACHE_1H = { 'Cache-Control': 'public, max-age=3600' };
 const NO_STORE = { 'Cache-Control': 'no-store' };
 
+const GA_MEASUREMENT_ID = 'G-GK02XFRHTN';
+
+const GA_SNIPPET = `<script async src="https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', '${GA_MEASUREMENT_ID}');
+  </script>`;
+
 const HOME_HTML = `<!doctype html>
 <html lang="en">
 <head>
@@ -41,6 +51,7 @@ const HOME_HTML = `<!doctype html>
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="description" content="¯\\_(ツ)_/¯ — a gimmick API for shruggies">
   <title>shruggie.wtf</title>
+  ${GA_SNIPPET}
   <style>
     *{box-sizing:border-box;margin:0;padding:0}
     :root{--bg:#111;--fg:#fff;--muted:#777}
@@ -103,6 +114,7 @@ const DOCS_HTML = `<!doctype html>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>shruggie.wtf — docs</title>
+  ${GA_SNIPPET}
   <style>
     *{box-sizing:border-box;margin:0;padding:0}
     :root{--bg:#111;--fg:#fff;--muted:#777;--sub:#ccc;--border:#2a2a2a;--surface:#1a1a1a}
